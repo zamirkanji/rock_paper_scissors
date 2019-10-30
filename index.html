@@ -13,16 +13,53 @@
         if (randNum === 1) {
           return "Rock";
         } else if (randNum === 2) {
-          return  "Paper";
+          return "Paper";
         } else {
           return "Scissors";
         }
     }
+
     function oneRound(playerSelection, computerSelection) {
-
-
-
+    switch (oneRound()) {
+      case playerSelection == "Scissors" || computerSelection == "Rock":
+        return "You Lose! Rock beats Scissors";
+        break;
+      case playerSelection == "Rock" || computerSelection == "Paper":
+        return "You Lose! Paper beats Rock!";
+        break;
+      case playerSelection == "Paper" || computerSelection == "Scissors":
+        return "You Lose! Scissors beats Paper!";
+        break;
+      case playerSelection == "Rock" || computerSelection == "Scissors":
+        return "You Win! Rock beats Scissors";
+        break;
+      case playerSelection == "Paper" || computerSelection == "Rock":
+        return "You Win! Paper beats Rock!";
+        break;
+      case playerSelection == "Scissors" || computerSelection == "Paper":
+        return "You Win! Scissors beats Paper!";
+        break;
+      default:
+        return "That is not a selection!";
+      }   
+      
+      // if (playerSelection == "Scissors" || computerSelection == "Rock") {
+      //   console.log("You Lose! Rock beats Scissors!");
+      // } else if (playerSelection == "Rock" || computerSelection == "Paper") {
+      //   console.log("You Lose! Paper beats Rock!");
+      // } else if (playerSelection == "Paper" || computerSelection == "Scissors") {
+      //   console.log("You Lose! Scissors beats Paper!");
+      // } else {
+      //   console.log("That is not a selection!");
+      // }
     }
+    let playerSelection = "Paper";
+    const computerSelection = computerPlay();
+    console.log(oneRound(playerSelection, computerSelection));
+    
+    // function game() {
+
+    // }
   </script>
 </body>
 </html>
