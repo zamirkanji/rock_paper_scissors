@@ -8,6 +8,13 @@
 </head>
 <body>
   <script>
+
+    let compWins = "Computer Wins!"; //???
+    let playerWins = "Player Wins!"; //???  
+    let compScore = 0;
+    let playerScore = 0;
+
+
     function computerPlay() {
        const randNum = Math.floor((Math.random() * 3) + 1);
         if (randNum === 1) {
@@ -17,45 +24,57 @@
         } else {
           return "Scissors";
         }
-    }  
-    
+    }
+
     function oneRound(playerSelection,computerSelection) {
       if (playerSelection === computerSelection) {
         return 'It\'s a tie!';
       } else if (playerSelection === 'Rock') {
         if (computerSelection === 'Paper') {
-          return 'Computer wins! Paper beats Rock!';
+          compScore++;
+          return compWins + " Paper beats Rock!";
             } else {
-              return 'You win! Rock beats Scissors!';
+              playerScore++;
+              return playerWins + " Rock beats Scissors!";
             }
       } else if (playerSelection === 'Paper'){
         if (computerSelection === 'Scissors') {
-          return 'Computer wins! Scissors beats Paper!';
+          compScore++;
+          return compWins + ' Scissors beats Paper!';
             } else {
-              return 'You win! Paper beats Rock!';
+              playerScore++;
+              return playerWins + ' Paper beats Rock!';
             }
       } else if (playerSelection === 'Scissors') {
         if (computerSelection === 'Rock') {
-          return 'Computer wins! Rock beats Scissors!';
+          compScore++;
+          return compWins + ' Rock beats Scissors!';
             } else {
-              return 'You win! Scissors beats Paper!';
+              playerScore++;
+              return playerWins + ' Scissors beats Paper!';
             }
       } 
     }
     
-    
-
-    // let playerSelection = "Rock";
-    
-    let computerSelection = computerPlay();
     // console.log(oneRound(playerSelection, computerSelection));
 
-    function game() {
-      
+    
+
+    function game() { 
       for (let i = 0; i < 5; i++) {
         let playerSelection = prompt("Please input either rock, paper, or scissors!");  
-          let result = console.log(oneRound(playerSelection,computerSelection));
-        console.log(result);
+        let computerSelection = computerPlay();
+        let result = console.log(oneRound(playerSelection,computerSelection));
+        // console.log(result);
+      }
+      if (compScore == playerScore) {
+        console.log("It's a draw! Thanks for playing!");
+      } else if (compScore > playerScore) {
+          console.log("Computer Wins! Computer Score: " + compScore + "| Player Score: " + playerScore);
+      } else if (playerScore > compScore) {
+          console.log("Player Wins! Player Score: " +     playerScore + "| Computer Score: " + compScore);
+      } else {
+          console.log("Not sure what happened here! But you both win for playing!");
       }
     }
 
