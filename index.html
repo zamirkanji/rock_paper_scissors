@@ -4,111 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
   <title>Rock, Paper, Scissors</title>
 </head>
 <body>
 
-<div id="main-container">
-    <div id="header">
-        <div id="logo">...</div>
-        <div id="main-menu">...</div>
-        <div id="header">
-          <h2>Let's play Rock Paper Scissors</h2>
-          <button id="btn_rock" type="button">Rock</button>
-          <button id="btn_paper" type="button">Paper</button>
-          <button id="btn_scissors" type="button">Scissors</button>
-        </div>
-    </div>
-    <div id="content">
-        <div id="left-column">...</div>
- 
-        <div id="center-column">...</div>
-        <div id="right-column">...</div>
-    </div>
-    <div id="footer">
-        <div id="footer-menu">...</div>
-        <div id="disclaimer">...</div>
-    </div>
-</div>  
-
-
-  <script>
-
-    let compWins = "Computer Wins!"; //???
-    let playerWins = "Player Wins!"; //???  
-    let compScore = 0;
-    let playerScore = 0;
-
-
-    function computerPlay() {
-       const randNum = Math.floor((Math.random() * 3) + 1);
-        if (randNum === 1) {
-          return "Rock";
-        } else if (randNum === 2) {
-          return "Paper";
-        } else {
-          return "Scissors";
-        }
-    }
-
-    function oneRound(playerSelection,computerSelection) {
-      if (playerSelection === computerSelection) {
-        return 'It\'s a tie!';
-      } else if (playerSelection === 'Rock') {
-        if (computerSelection === 'Paper') {
-          compScore++;
-          return compWins + " Paper beats Rock!";
-            } else {
-              playerScore++;
-              return playerWins + " Rock beats Scissors!";
-            }
-      } else if (playerSelection === 'Paper'){
-        if (computerSelection === 'Scissors') {
-          compScore++;
-          return compWins + ' Scissors beats Paper!';
-            } else {
-              playerScore++;
-              return playerWins + ' Paper beats Rock!';
-            }
-      } else if (playerSelection === 'Scissors') {
-        if (computerSelection === 'Rock') {
-          compScore++;
-          return compWins + ' Rock beats Scissors!';
-            } else {
-              playerScore++;
-              return playerWins + ' Scissors beats Paper!';
-            }
-      } 
-    }
-    
-    // console.log(oneRound(playerSelection, computerSelection));
-
-    
-
-    function game() { 
-      for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt("Please input either rock, paper, or scissors!");  
-        let computerSelection = computerPlay();
-        let result = console.log(oneRound(playerSelection,computerSelection));
-        // console.log(result);
-      }
-      if (compScore == playerScore) {
-        console.log("It's a draw! Thanks for playing!");
-      } else if (compScore > playerScore) {
-          console.log("Computer Wins! Computer Score: " + compScore + "| Player Score: " + playerScore);
-      } else if (playerScore > compScore) {
-          console.log("Player Wins! Player Score: " +     playerScore + "| Computer Score: " + compScore);
-      } else {
-          console.log("Not sure what happened here! But you both win for playing!");
-      }
-    }
-
-    game();
-
-
-
-
-
-  </script>
+  <div id="main-container" class="main-container">
+      <div class="header">
+          <h2>Let's play Rock Paper Scissors</h2>       
+      </div>
+      <div class="content">
+          <div class="gameBtn">
+              <button class="playBtn" id="btn_rock" type="button" value="Rock">Rock</button>
+              <button class="playBtn" id="btn_paper" type="button" value="Paper">Paper</button>
+              <button class="playBtn" id="btn_scissors" type="button" value="Scissors">Scissors</button>
+          </div>
+      </div>
+      <div class="footer">
+          <h2>Results:</h2>
+      </div>
+  </div>  
+  
 </body>
 </html>
