@@ -1,42 +1,54 @@
-
-let compWins = "Computer Wins!"; //???
-let playerWins = "Player Wins!"; //???  
   let compScore = 0;
   let playerScore = 0;
+
+
+  // const rock = document.querySelector("#rock");
+  // rock.addEventListener("click", playerSelection);
+
+  // const paper = document.querySelector("#paper");
+  // paper.addEventListener("click", playerSelection);
+
+  // const scissors = document.querySelector("#scissors");
+  // scissors.addEventListener("click", playerSelection);
+
 
 
     function computerPlay() {
        const randNum = Math.floor((Math.random() * 3) + 1);
         if (randNum === 1) {
-          return "Rock";
+          return "rock";
         } else if (randNum === 2) {
-          return "Paper";
+          return "paper";
         } else {
-          return "Scissors";
+          return "scissors";
         }
     }
 
     function oneRound(playerSelection,computerSelection) {
+      playerSelection = playerSelection.toLowerCase();
+      computerSelection = computerSelection.toLowerCase();
+
+
       if (playerSelection === computerSelection) {
         return 'It\'s a tie!';
-      } else if (playerSelection === 'Rock') {
-        if (computerSelection === 'Paper') {
+      } else if (playerSelection === 'rock') {
+        if (computerSelection === 'paper') {
           compScore++;
           return compWins + " Paper beats Rock!";
             } else {
               playerScore++;
               return playerWins + " Rock beats Scissors!";
             }
-      } else if (playerSelection === 'Paper'){
-        if (computerSelection === 'Scissors') {
+      } else if (playerSelection === 'paper'){
+        if (computerSelection === 'scissors') {
           compScore++;
           return compWins + ' Scissors beats Paper!';
             } else {
               playerScore++;
               return playerWins + ' Paper beats Rock!';
             }
-      } else if (playerSelection === 'Scissors') {
-        if (computerSelection === 'Rock') {
+      } else if (playerSelection === 'scissors') {
+        if (computerSelection === 'rock') {
           compScore++;
           return compWins + ' Rock beats Scissors!';
             } else {
