@@ -7,7 +7,6 @@ body {
 
 .main-container {
   display: flex;
-
   flex-direction: column;
   /*text-align: center;
   align-content: center;*/
@@ -22,6 +21,10 @@ body {
   opacity: .5;
   font-weight: lighter;
   text-align: center;
+}
+
+.main {
+  flex: auto;
 }
 
 .gameBtn {
@@ -48,7 +51,7 @@ body {
   width: 150px;
 }
 
-.footer {
+.footer h2 {
   background: rgb(70, 125, 243);
   height: 250px;
   
