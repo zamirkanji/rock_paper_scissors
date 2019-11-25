@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js"></script>
-  <title>Rock, Paper, Scissors</title>
-</head>
-<body>
-
-  <div id="main-container" class="main-container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <title>Rock, Paper, Scissors</title>
+  </head>
+  <body>
+    <div id="container" class="main-container">
       <div class="header">
-          <h2>Let's Play Rock, Paper, Scissors</h2>       
+        <h2>Let's Play Rock, Paper, Scissors</h2>
       </div>
       <div class="main">
-          <div class="gameBtn">
-              <button class="playBtn" id="rock" type="button" value="rock">Rock</button>
-              <button class="playBtn" id="paper" type="button" value="paper">Paper</button>
-              <button class="playBtn" id="scissors" type="button" value="scissors">Scissors</button>
-          </div>
+        <div class="gameBtn">
+          <button id="rock" class="playBtn" type="button" value="rock">
+            Rock
+          </button>
+          <button id="paper" class="playBtn" type="button" value="paper">
+            Paper
+          </button>
+          <button id="scissors" class="playBtn" type="button" value="scissors">
+            Scissors
+          </button>
+        </div>
       </div>
-      <div class="footer">
-          <h2>Results:</h2>
+      <div class="displayResults">
+        <p id="dsR">Rock:</p>
+        <p id="dsP">Paper:</p>
+        <p id="dsS">Scissors:</p>
+
+        <h2 id="results">Results:</h2>
       </div>
-  </div>  
-  
-</body>
+    </div>
+  </body>
 </html>
