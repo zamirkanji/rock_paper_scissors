@@ -7,46 +7,54 @@ const displayResults = document.querySelector(".displayResults");
 //display comp and player score
 const displayCompScore = document.querySelector("#displayCompScore");
 const displayPlayerScore = document.querySelector("#displayPlayerScore");
-let dsC = (displayCompScore.textContent = "Computer Score: " + compScore);
-let dsP = (displayPlayerScore.textContent = "Player Score: " + playerScore);
 
-// display comp and player score should  fire off when playround() is called
+// let dsC =
+displayCompScore.textContent = "Computer Score: " + compScore;
+// let dsP =
+displayPlayerScore.textContent = "Player Score: " + playerScore;
+
+const finalResults = document.querySelector("#finalResults");
+
+// display comp and player score should fire off when playRound() is called
 displayResults.appendChild(displayCompScore);
 displayResults.appendChild(displayPlayerScore);
 
-container.appendChild(displayResults);
+container.appendChild(finalResults);
+// container.appendChild(displayResults);
 
-const finalResults = document.querySelector("#finalResults");
-displayResults.appendChild(finalResults);
-
-//
+// When selecting each buttton, fire off playRound function
 const rock = document.querySelector("#rock");
-rock.addEventListener("click", function(playRock) {
+rock.addEventListener("click", function(event) {
   let computer = computerPlay();
-  displayResults.textContent = playRound("rock", computer);
+  playRound("rock", computer);
   if (playerScore === 5 || compScore === 5) {
     finalR();
+    // break;
   }
 });
 
 const paper = document.querySelector("#paper");
-paper.addEventListener("click", function(playPaper) {
+paper.addEventListener("click", function(event) {
   let computer = computerPlay();
-  displayResults.textContent = playRound("paper", computer);
+  playRound("paper", computer); // figure out arguments?
   if (playerScore === 5 || compScore === 5) {
     finalR();
+    // break;
   }
 });
 
 const scissors = document.querySelector("#scissors");
-scissors.addEventListener("click", function(playScissors) {
+scissors.addEventListener("click", function(event) {
   let computer = computerPlay();
-  displayResults.textContent = playRound("scissors", computer);
+  // displayResults.textContent =
+  playRound("scissors", computer);
   if (playerScore === 5 || compScore === 5) {
     finalR();
+    // break;
   }
 });
 
+// fucntion to randomize computer selection
 function computerPlay() {
   const randNum = Math.floor(Math.random() * 3 + 1);
   if (randNum === 1) {
@@ -59,38 +67,41 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  playerSelection = playerSelection.toLowerCase();
-  computerSelection = computerSelection.toLowerCase();
+  // playerSelection = playerSelection.toLowerCase();
+  // computerSelection = computerSelection.toLowerCase();
+
   if (playerSelection === computerSelection) {
-    return "It's a tie!";
+    finalResults.textContent = "This round is a tie. Keep playing!";
   } else if (playerSelection === "rock") {
     if (computerSelection === "paper") {
       compScore++;
-      dsC;
+      displayCompScore.textContent = "Computer Score: " + compScore;
+      // return dsC;
       //  return compWins + " Paper beats Rock!";
     } else {
       playerScore++;
-      dsP;
+      displayPlayerScore.textContent = "Player Score: " + playerScore;
+      // return dsP;
       //  return playerWins + " Rock beats Scissors!";
     }
   } else if (playerSelection === "paper") {
     if (computerSelection === "scissors") {
       compScore++;
-      dsC;
+      displayCompScore.textContent = "Computer Score: " + compScore;
       //  return compWins + " Scissors beats Paper!";
     } else {
       playerScore++;
-      dsP;
-      // return playerWins + " Paper beats Rock!";
+      displayPlayerScore.textContent = "Player Score: " + playerScore;
+      //  return playerWins + " Paper beats Rock!";
     }
   } else if (playerSelection === "scissors") {
     if (computerSelection === "rock") {
       compScore++;
-      dsC;
+      displayCompScore.textContent = "Computer Score: " + compScore;
       // return compWins + " Rock beats Scissors!";
     } else {
       playerScore++;
-      dsP;
+      displayPlayerScore.textContent = "Player Score: " + playerScore;
       // return playerWins + " Scissors beats Paper!";
     }
   }
